@@ -1,5 +1,6 @@
 @use "@styles/color";
 @use "@styles/space";
+@use "@styles/animations";
 
 .listItem {
   height: space.$s12;
@@ -9,6 +10,11 @@
   padding: space.$s0 space.$s3;
   background: transparent;
   border-radius: 6px;
+  transition: animations.$transition-config;
+
+  &:hover {
+    background-color: color.$gray-700;
+  }
 }
 
 .listItem.active {
@@ -32,5 +38,5 @@
 }
 
 .reverse {
-  transform: rotateY(180deg);
+  transform: rotate(180deg);
 }
