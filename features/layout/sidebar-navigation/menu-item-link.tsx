@@ -7,7 +7,7 @@ type MenuItemProps = {
   text: string;
   iconSrc: string;
   href: string;
-  isActive: boolean;
+  isActive?: boolean;
   isCollapsed: boolean;
 };
 
@@ -15,7 +15,7 @@ export function MenuItemLink({
   text,
   href,
   iconSrc,
-  isActive,
+  isActive = false,
   isCollapsed,
 }: MenuItemProps) {
   return (
