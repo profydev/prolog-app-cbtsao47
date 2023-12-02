@@ -50,6 +50,20 @@ describe("Sidebar Navigation", () => {
       // check that text is not rendered
       cy.get("nav").contains("Issues").should("not.exist");
     });
+
+    it("shows large logo when switching to landscape while navigation is collapsed", () => {
+      // collapse sidebar
+      cy.get("nav").contains("Collapse").click();
+      // verify the right icon is rendered
+      cy.get("img[src='/icons/logo-small.svg']").should("be.visible");
+      cy.get("img[src='/icons/logo-large.svg']").should("not.be.visible");
+
+      // switch viewport to landscape mode
+      cy.viewport(900, 1025);
+      // verify the right icon is rendered
+      cy.get("img[src='/icons/logo-large.svg']").should("be.visible");
+      cy.get("img[src='/icons/logo-small.svg']").should("not.be.visible");
+    });
   });
 
   context("mobile resolution", () => {
