@@ -7,4 +7,15 @@ body {
 
 a {
   color: color.$primary-700;
+  text-decoration: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+small {
+  margin: 0;
 }
