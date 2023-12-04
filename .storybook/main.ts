@@ -21,6 +21,7 @@ module.exports = {
     // ensure that new next/link is enabled in storybook
     // required for sidebar navigation stories
     __NEXT_NEW_LINK_BEHAVIOR: true,
+    appVersion: "14.5.2",
   }),
 
   webpackFinal: async (config) => {
@@ -33,5 +34,9 @@ module.exports = {
     config.resolve.alias["@styles"] = path.resolve("./styles");
     config.resolve.alias["@typings"] = path.resolve("./typings");
     return config;
+  },
+
+  docs: {
+    autodocs: true,
   },
 };

@@ -8,6 +8,9 @@ import { MenuItemLink } from "./menu-item-link";
 import { Button } from "@features/ui";
 import styles from "./sidebar-navigation.module.scss";
 
+interface SidebarNavigationProps {
+  className?: string;
+}
 const menuItems = [
   { text: "Projects", iconSrc: "/icons/projects.svg", href: Routes.projects },
   { text: "Issues", iconSrc: "/icons/issues.svg", href: Routes.issues },
@@ -16,7 +19,7 @@ const menuItems = [
   { text: "Settings", iconSrc: "/icons/settings.svg", href: Routes.settings },
 ];
 
-export function SidebarNavigation() {
+export function SidebarNavigation({ className }: SidebarNavigationProps) {
   const router = useRouter();
   const { isSidebarCollapsed, toggleSidebar } = useContext(NavigationContext);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -25,6 +28,7 @@ export function SidebarNavigation() {
       className={classNames(
         styles.container,
         isSidebarCollapsed && styles.isCollapsed,
+        className,
       )}
     >
       <div
