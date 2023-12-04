@@ -55,14 +55,22 @@ describe("Sidebar Navigation", () => {
       // collapse sidebar
       cy.get("nav").contains("Collapse").click();
       // verify the right icon is rendered
-      cy.get("img[src='/icons/logo-small.svg']").should("be.visible");
-      cy.get("img[src='/icons/logo-large.svg']").should("not.be.visible");
+      cy.get("header")
+        .find("img[src='/icons/logo-small.svg']")
+        .should("be.visible");
+      cy.get("header")
+        .find("img[src='/icons/logo-large.svg']")
+        .should("not.be.visible");
 
       // switch viewport to landscape mode
       cy.viewport(900, 1025);
       // verify the right icon is rendered
-      cy.get("img[src='/icons/logo-large.svg']").should("be.visible");
-      cy.get("img[src='/icons/logo-small.svg']").should("not.be.visible");
+      cy.get("header")
+        .find("img[src='/icons/logo-large.svg']")
+        .should("be.visible");
+      cy.get("header")
+        .find("img[src='/icons/logo-small.svg']")
+        .should("not.be.visible");
     });
   });
 
