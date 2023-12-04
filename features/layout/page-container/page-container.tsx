@@ -37,7 +37,7 @@ export function PageContainer({ children, title, info }: PageContainerProps) {
           { text: "Community" },
         ]}
         logoSrc="/icons/logo-small.svg"
-        version="14.5.1"
+        version={process.env.appVersion}
       />
     </div>
   );
