@@ -1,20 +1,21 @@
 import styles from "./footer.module.scss";
 import Link from "next/link";
-
+import classNames from "classnames";
 interface ILink {
   href?: string;
   text: string;
 }
 
 interface FooterProps {
+  className?: string;
   links?: ILink[];
   logoSrc?: string;
   version?: string;
 }
 
-export function Footer({ links, logoSrc, version }: FooterProps) {
+export function Footer({ className, links, logoSrc, version }: FooterProps) {
   return (
-    <footer className={styles.container}>
+    <footer className={classNames(styles.container, className)}>
       <ul className={styles.links}>
         {links?.map((link) => (
           <li key={link.href}>

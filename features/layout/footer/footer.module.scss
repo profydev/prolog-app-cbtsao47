@@ -9,6 +9,7 @@
   gap: space.$s6;
   padding: space.$s6;
   color: color.$gray-500;
+  background: color.$gray-50;
 
   @media (min-width: breakpoint.$desktop) {
     flex-direction: row;

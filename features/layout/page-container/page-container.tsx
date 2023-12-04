@@ -20,7 +20,7 @@ export function PageContainer({ children, title, info }: PageContainerProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <SidebarNavigation />
+      <SidebarNavigation className={styles.navigation} />
       <main className={styles.main}>
         <div className={styles.contentContainer}>
           <h1 className={styles.title}>{title}</h1>
@@ -28,7 +28,17 @@ export function PageContainer({ children, title, info }: PageContainerProps) {
           {children}
         </div>
       </main>
-      <Footer />
+      <Footer
+        className={styles.footer}
+        links={[
+          { text: "Docs" },
+          { text: "API" },
+          { text: "Help" },
+          { text: "Community" },
+        ]}
+        logoSrc="/icons/logo-small.svg"
+        version="14.5.1"
+      />
     </div>
   );
 }
