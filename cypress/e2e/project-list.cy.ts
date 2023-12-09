@@ -5,13 +5,18 @@ import mockProjects from "../fixtures/projects.json";
 describe("Project List", () => {
   beforeEach(() => {
     // setup request mock
-    cy.intercept("GET", "https://prolog-api.profy.dev/project", {
-      fixture: "projects.json",
+    cy.intercept("GET", "https://prolog-api.profy.dev/project", (req) => {
+      req.on("response", (res) => {
+        res.setDelay(1000).send({
+          fixture: "projects.json",
+        });
+      });
     }).as("getProjects");
 
     // open projects page
     cy.visit("http://localhost:3000/dashboard");
-
+    // should show a loader
+    cy.get("img[alt=loading]").should("be.visible");
     // wait for request to resolve
     cy.wait("@getProjects");
   });
