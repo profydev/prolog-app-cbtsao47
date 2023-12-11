@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import styles from "./notification.module.scss";
-
+import { Button } from "../button";
 export enum TNotification {
   error = "error",
   warning = "warning",
@@ -21,7 +21,7 @@ export const Notification = ({ type, text, iconSrc, onClick }: IProps) => {
       <img src={iconSrc} alt="icon" />
       <p>{text}</p>
       {type === TNotification.error && (
-        <button
+        <Button
           data-testid="retry-button"
           className={styles.retry}
           onClick={onClick}
@@ -35,7 +35,7 @@ export const Notification = ({ type, text, iconSrc, onClick }: IProps) => {
             src="/icons/arrow-right.svg"
             alt="try again"
           />
-        </button>
+        </Button>
       )}
     </div>
   );

@@ -4,6 +4,8 @@
 @use "@styles/breakpoint";
 
 .container {
+  box-sizing: border-box;
+  width: 100%;
   display: flex;
   align-items: center;
   padding: space.$s4;
@@ -28,12 +30,10 @@
   display: flex;
   margin-left: auto;
   align-items: center;
-
-  & .retryIcon {
-    transform: rotate(180deg);
-  }
+  gap: space.$s3;
 
   p {
     width: max-content;
+    margin-right: space.$s3;
   }
 }
