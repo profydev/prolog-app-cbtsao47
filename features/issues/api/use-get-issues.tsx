@@ -28,6 +28,6 @@ export function useGetIssues(page: number) {
         getIssues(page + 1, { signal }),
       );
     }
-  }, [query.data, page, queryClient]);
+  }, [query, page, queryClient]);
   return query;
 }
